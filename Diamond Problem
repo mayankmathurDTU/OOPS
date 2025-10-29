@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class A {
+public:
+    void show() {                  // function in base class
+        cout << "Hello from A" << endl;
+    }
+};
+
+// Class B inherits from A
+class B : public A {               // B gets show() from A
+};
+
+// Class C also inherits from A
+class C : public A {               // C also gets show() from A
+};
+
+// Class D inherits from both B and C
+class D : public B, public C {     // Now D has two copies of A (one from B and one from C)
+};
+
+int main() {
+    D obj;                         // create object of D
+
+    // obj.show();                 // ❌ ERROR: Ambiguity! Compiler doesn’t know which A::show() to call (B’s or C’s)
+    
+    obj.B::show();                 // ✅ Explicitly calling A’s version from B’s side
+    obj.C::show();                 // ✅ Explicitly calling A’s version from C’s side
+
+    return 0;
+}
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class A {
+public:
+    void show() {                  // Function in base class
+        cout << "Hello from A" << endl;
+    }
+};
+
+// Class B inherits A virtually
+class B : virtual public A {       // virtual inheritance: ensures only ONE shared A
+};
+
+// Class C inherits A virtually
+class C : virtual public A {       // again, one shared A for everyone
+};
+
+// Class D inherits from B and C
+class D : public B, public C {     // D now has only one A (shared)
+};
+
+int main() {
+    D obj;                         // Create object of D
+    obj.show();                    // ✅ No ambiguity — only one A::show exists now
+    return 0;
+}
