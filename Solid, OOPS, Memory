@@ -1,0 +1,33 @@
++-----+----------------------------+----------------------------------------------+----------------------------------------------+
+| No. | Principle                  | Simple Explanation                           | One-Line Example                             |
++-----+----------------------------+----------------------------------------------+----------------------------------------------+
+| S   | Single Responsibility      | One class = one job.                         | Class 'InvoicePrinter' only prints invoice.  |
+| O   | Open/Closed                | Open for extension, closed for modification. | Add new shape by subclassing, not editing.   |
+| L   | Liskov Substitution        | Subclasses should work like base classes.    | Derived 'Bird' should still 'fly()' properly.|
+| I   | Interface Segregation      | Don’t force classes to use unused methods.   | 'Printer' and 'Scanner' interfaces separate. |
+| D   | Dependency Inversion       | Depend on abstractions, not implementations. | Code uses 'DatabaseInterface', not 'MySQL'.  |
++-----+----------------------------+----------------------------------------------+----------------------------------------------+
+
+
++-----+--------------------+----------------------------------------------+----------------------------------------------+
+| No. | Principle          | Simple Explanation                           | One-Line Example                             |
++-----+--------------------+----------------------------------------------+----------------------------------------------+
+| 1   | Encapsulation      | Keep data safe by hiding it inside a class.  | Private vars with public getter/setter.      |
+| 2   | Abstraction        | Show only important details, hide complexity.| Use abstract class 'Shape' with draw().      |
+| 3   | Inheritance        | Reuse code by deriving new classes.          | 'Car' inherits from 'Vehicle'.               |
+| 4   | Polymorphism       | One interface, many implementations.         | 'draw()' works differently for Circle/Square.|
++-----+--------------------+----------------------------------------------+----------------------------------------------+
+
+
++------+----------------+------------------+-------------------------------------------------------------+
+| No.  | Component      | Rough Size       | One-Line Explanation                                        |
++------+----------------+------------------+-------------------------------------------------------------+
+| 1    | CPU Registers  | Few bytes (KBs)  | Ultra-fast storage inside CPU for immediate data.           |
+| 2    | L1 Cache       | 32–128 KB        | Fastest cache, per CPU core, stores very frequent data.     |
+| 3    | L2 Cache       | 256 KB – 2 MB    | Slightly slower, per core or shared between few cores.      |
+| 4    | L3 Cache       | 4 – 64 MB        | Slower, shared among all CPU cores.                         |
+| 5    | RAM (Main Memory)| 4 – 64 GB       | Holds running programs and active data.                     |
+| 6    | Frame          | Same as page (4 KB)| A block in physical memory (RAM) for a page.              |
+| 7    | Page           | 4 KB (typical)   | A virtual memory block mapped to a frame in RAM.            |
+| 8    | Storage (SSD/HDD)| 100 GB – TBs    | Slowest, used for long-term data storage.                   |
++------+----------------+------------------+-------------------------------------------------------------+
