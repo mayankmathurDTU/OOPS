@@ -1,0 +1,90 @@
+#include <iostream>
+#include <thread>      // for std::thread
+#include <mutex>       // for std::mutex
+
+using namespace std;
+
+mutex m1;              // first lock
+mutex m2;              // second lock
+
+// Thread 1 tries to lock m1 first, then m2
+void thread1() {
+    lock_guard<mutex> lock1(m1);   // lock m1
+    cout << "Thread 1 locked m1" << endl;
+
+    this_thread::sleep_for(chrono::milliseconds(100));  // small delay to let Thread 2 run
+
+    lock_guard<mutex> lock2(m2);   // tries to lock m2 (but Thread 2 might have it)
+    cout << "Thread 1 locked m2" << endl;
+}
+
+// Thread 2 tries to lock m2 first, then m1
+void thread2() {
+    lock_guard<mutex> lock1(m2);   // lock m2
+    cout << "Thread 2 locked m2" << endl;
+
+    this_thread::sleep_for(chrono::milliseconds(100));  // small delay
+
+    lock_guard<mutex> lock2(m1);   // tries to lock m1 (but Thread 1 might have it)
+    cout << "Thread 2 locked m1" << endl;
+}
+
+int main() {
+    thread t1(thread1);   // start thread 1
+    thread t2(thread2);   // start thread 2
+
+    t1.join();            // wait for thread 1
+    t2.join();            // wait for thread 2
+
+    cout << "Finished" << endl;
+    return 0;
+}
+
+
+
+------------------------------------------------------------------------------------------
+
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+
+using namespace std;
+
+mutex m1;
+mutex m2;
+
+// Thread 1 locks m1 then m2
+void thread1() {
+    lock_guard<mutex> lock1(m1);   // lock m1 first
+    cout << "Thread 1 locked m1" << endl;
+
+    this_thread::sleep_for(chrono::milliseconds(100));  // delay
+
+    lock_guard<mutex> lock2(m2);   // lock m2 second
+    cout << "Thread 1 locked m2" << endl;
+}
+
+// Thread 2 also locks m1 then m2 (same order!)
+void thread2() {
+    lock_guard<mutex> lock1(m1);   // lock m1 first (same order)
+    cout << "Thread 2 locked m1" << endl;
+
+    this_thread::sleep_for(chrono::milliseconds(100));  // delay
+
+    lock_guard<mutex> lock2(m2);   // lock m2 second
+    cout << "Thread 2 locked m2" << endl;
+}
+
+int main() {
+    thread t1(thread1);
+    thread t2(thread2);
+
+    t1.join();
+    t2.join();
+
+    cout << "Finished safely" << endl;
+    return 0;
+}
+
+------------------------
