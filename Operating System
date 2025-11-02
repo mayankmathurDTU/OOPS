@@ -1,0 +1,44 @@
++----+------------------------------------------------------------+---------------------------------------------------------------+
+| No | Question                                                   | Short Answer                                                   |
++----+------------------------------------------------------------+---------------------------------------------------------------+
+| 1  | What is an Operating System?                               | Software that manages hardware, memory, and processes.         |
+| 2  | What is a process?                                         | A running instance of a program.                              |
+| 3  | What is a thread?                                          | A lightweight process that shares memory with others.          |
+| 4  | Process vs Thread?                                         | Process = independent; Thread = part of a process.             |
+| 5  | What is context switching?                                 | CPU switching from one process/thread to another.              |
+| 6  | What is a PCB (Process Control Block)?                     | Structure storing process info like PID, state, registers.     |
+| 7  | What are system calls?                                     | Interface between user and kernel (e.g., fork(), read()).      |
+| 8  | What is virtual memory?                                    | Uses disk as extended RAM using paging or swapping.            |
+| 9  | What is paging?                                            | Dividing memory into fixed-size blocks called pages.           |
+| 10 | What is segmentation?                                      | Dividing memory based on logical parts (functions, arrays).    |
+| 11 | Paging vs Segmentation?                                    | Paging = fixed blocks; Segmentation = logical blocks.          |
+| 12 | What is a page fault?                                      | When a page is not found in main memory.                      |
+| 13 | What is demand paging?                                     | Loading pages into memory only when needed.                    |
+| 14 | What is thrashing?                                         | CPU time wasted on swapping pages instead of execution.        |
+| 15 | What is a deadlock?                                        | Processes waiting forever for each other’s resources.          |
+| 16 | Deadlock conditions?                                       | Mutual exclusion, hold & wait, no preemption, circular wait.   |
+| 17 | How to prevent deadlocks?                                  | Avoid at least one of the conditions (e.g., resource order).   |
+| 18 | What is starvation?                                        | Process never gets CPU or resources due to low priority.       |
+| 19 | Difference between starvation and deadlock?                | Deadlock = circular wait; Starvation = long waiting.           |
+| 20 | What is a semaphore?                                       | Sync tool for controlling access to shared resources.          |
+| 21 | Binary vs Counting semaphore?                              | Binary = 0/1; Counting = >1 (multiple resources).              |
+| 22 | What is a monitor?                                         | Higher-level synchronization construct (like mutex + condition).|
+| 23 | What is race condition?                                    | Two threads accessing shared data simultaneously.              |
+| 24 | How to prevent race condition?                             | Use locks, semaphores, or synchronized blocks.                 |
+| 25 | What is a critical section?                                | Code segment accessing shared resource.                        |
+| 26 | What is scheduling?                                        | Deciding which process/thread gets CPU next.                   |
+| 27 | Types of scheduling algorithms?                            | FCFS, SJF, RR, Priority, Multilevel Queue.                     |
+| 28 | Preemptive vs Non-preemptive scheduling?                   | Preemptive allows interruption; Non-preemptive does not.       |
+| 29 | What is turnaround time?                                   | Total time from submission to completion.                      |
+| 30 | What is waiting time?                                      | Time spent waiting in the ready queue.                         |
+| 31 | What is response time?                                     | Time until first response.                                     |
+| 32 | What is CPU utilization?                                   | Percentage of CPU used for execution vs idle.                  |
+| 33 | What is a kernel?                                          | Core part of OS managing CPU, memory, and I/O.                 |
+| 34 | Monolithic vs Microkernel?                                 | Monolithic = big kernel; Microkernel = minimal + modular.      |
+| 35 | What is multitasking?                                      | Running multiple tasks by time-sharing CPU.                    |
+| 36 | What is multiprocessing?                                   | Using multiple CPUs to execute tasks in parallel.              |
+| 37 | What is multithreading?                                    | Multiple threads sharing one process memory.                   |
+| 38 | What is IPC (Inter-Process Communication)?                 | Processes sharing data via pipes, queues, shared memory.        |
+| 39 | What is a zombie process?                                  | Terminated process whose parent hasn’t read its status.        |
+| 40 | What is RAID?                                              | Multiple disks combined for redundancy/performance (RAID 0–5).  |
++----+------------------------------------------------------------+---------------------------------------------------------------+
