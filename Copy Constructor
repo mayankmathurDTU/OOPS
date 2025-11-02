@@ -1,0 +1,64 @@
+# A copy constructor creates a new object as a copy of an existing object.
+# It defines how the object’s data members should be copied — either shallowly or deeply.
+
+# 🧩 Syntax:
+# ClassName(const ClassName &obj) {
+#     // copy logic here
+# }
+
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int* marks;
+
+    // Normal Constructor
+    Student(string n, int m) {
+        name = n;
+        marks = new int(m);
+    }
+
+    // 🧩 Shallow Copy Constructor
+    Student(const Student &s, bool shallowCopy) {
+        if (shallowCopy) {
+            name = s.name;
+            marks = s.marks;  // shallow copy — just copy pointer address
+        } else {
+            name = s.name;
+            marks = new int(*s.marks);  // deep copy — allocate new memory
+        }
+    }
+
+    void show() {
+        cout << name << " got " << *marks << " marks" << endl;
+    }
+};
+
+int main() {
+    Student s1("Aman", 90);          // original object
+
+    // 👇 Shallow Copy
+    Student shallowCopy(s1, true);
+    *shallowCopy.marks = 95;         // changes reflect in s1 too
+    cout << "Shallow Copy:\n";
+    s1.show();                       // Aman got 95 marks
+    shallowCopy.show();              // Aman got 95 marks
+
+    // 👇 Deep Copy
+    Student deepCopy(s1, false);
+    *deepCopy.marks = 100;           // independent copy
+    cout << "\nDeep Copy:\n";
+    s1.show();                       // Aman got 95 marks
+    deepCopy.show();                 // Aman got 100 marks
+}
+
+# 🧱 DIFFERENCE TABLE
+
+# | Feature               | Shallow Copy                             | Deep Copy                              |
+# |------------------------|------------------------------------------|----------------------------------------|
+# | Memory Allocation      | Shares same memory for pointer variables | Allocates new memory                   |
+# | Change in copy         | Affects original object                  | Does NOT affect original object        |
+# | Pointer Behavior       | Points to same address                   | Points to a different address          |
+# | Example Syntax         | marks = s.marks;                         | marks = new int(*s.marks);             |
