@@ -1,0 +1,18 @@
++-----------------------------------+-----------------------------+-----------------------------+
+|              Feature              |           malloc()          |             new             |
++-----------------------------------+-----------------------------+-----------------------------+
+| Language                          | C language function         | C++ operator / keyword      |
+| Purpose                           | Allocates raw memory only   | Allocates memory + creates object |
+| Type Safety                       | Not type-safe (returns void*) | Type-safe (returns correct type) |
+| Constructor / Destructor           | Does NOT call constructor or destructor | Calls both automatically |
+| Initialization                    | Does not initialize memory  | Can initialize while creating |
+| Error Handling                    | Returns NULL if fails       | Throws bad_alloc exception if fails |
+| Memory Release                    | Must use free()             | Must use delete              |
+| Overloading / Customization        | Cannot be overloaded        | Can be overloaded (custom memory mgmt) |
+| Simplicity                        | Needs type casting and manual setup | Easier and safer in C++ |
++-----------------------------------+-----------------------------+-----------------------------+
+
+✅ **In short:**  
+- `malloc` → Just gives you empty memory (C style).  
+- `new` → Gives memory **and** builds the object properly (C++ style).  
+Hence, in C++, always prefer **`new`** over **`malloc`**.
