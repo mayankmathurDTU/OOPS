@@ -1,0 +1,57 @@
+Currently i am working on developing Auto Switch algorithm on buds. 
+Samsung is launching a new product where buds are worn like earrings. So they are reversable. 
+I am developing that algorithm. After wear on is detected. We take accel values at 20 ms for 400 ms. 
+Ie total 20 values. We find the max and min value by magnitude. We use a low pass filer on our values. 
+We find the mean our values in this period. And put threashold checks on it. 
+
+Before this i have developed proximity sensor algorithm for wear on detection. 
+Samsung inherently used skin sensor for ear detection. 
+I was tasked to make an algorithm using proximity sensor.
+In that we take sensor data from proximity sensor. It gives a raw number value. 
+But the main problem was deciding the reference value. 
+Because the open air values of proximity sensor changes with height and pressure. 
+So we decided to do calibration once at factory level(fallback value) and once at user level. 
+Using data estimates, we computed that inEar values are usually 2000 more than open air raw values. 
+And open air raw values are computed using calibration. 
+We also used accel sensor to detect no move table condition as on table accel is stable and variance is is very low. 
+So if the variance is in particular low range we detect table and turn on the buds.
+
+
+CHALLENGES 
+1. When software release SR happens : we have to be available 24 hours. 
+    Any issue which comes has to be resolved in 6 hours. 
+2. ⁠during software release, at times the respective teams deny to accept the issue as there. 
+    So we have to at times work their end of ownership.
+3. ⁠as we work on devices, at times we face hardware issues..which delay our work. 
+    No team shared their devices as everyone has limited resources. 
+    So if your hardware doesnt work..it become really difficult to debug..
+    you have to keep good friendly relations with people.
+4. Sensor changed from bestech to QUALCOMM, redesign all APIs on famework layer
+
+
+LEAVING SAMSUNG
+
+1. Honestly it is really difficult for me. Samsung has given me alot, good friends, 
+    great seniors and a lot of learning. 
+2. When i joined i was given watch sensor algorithms. 
+    They had legacy algorithms, there wasent much development there. 
+    But there were a lot of maintenance and market issues.
+3. Soon after i was given watch buds project as the 2 seniors
+    who used to handle buds earlier both had resigned. 
+    One of them was actually from my college only. SO he really taught me alot about how sensor 
+    algorithms work, how we handle data, how porting is done, and how is the whole architecture of the code. 
+4. I completely took over buds project since then. 
+    I was lucky in that regard that i got such a big project so early 
+    in my career. it is a really important product as buds is a highly profitable device for the company.
+5. the entire code base is in cpp, a language which i really love to work in. 
+6. so leaving Samsung is really hard for me, but i want to learn more things.
+7. I was really intruiged by this specific role as it worked in windows, 
+    I have worked with Samsung's OS Tizen before. Windows is world famous, 
+    I was to learn and work on it. The code base Tizen and windows both is in 
+    cpp so that was also a plus point for me. this role included working with 
+    cloud as well, i haven't worked on cloud previously, but i want to learn that. 
+    So all in all, it will be a really good learning experience for me. working with 
+    cloud, deploying new services and learning about windows OS.  
+    Learning about windows OS is something really exciting for me. 
+ 
+I am looking at Microsoft as my long term employer. I have heard from my seniors it has a great working environment. So thats a bonus.
