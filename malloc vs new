@@ -1,16 +1,27 @@
-+-----------------------------------+-----------------------------+-----------------------------+
-|              Feature              |           malloc()          |             new             |
-+-----------------------------------+-----------------------------+-----------------------------+
-| Language                          | C language function         | C++ operator / keyword      |
-| Purpose                           | Allocates raw memory only   | Allocates memory + creates object |
-| Type Safety                       | Not type-safe (returns void*) | Type-safe (returns correct type) |
-| Constructor / Destructor           | Does NOT call constructor or destructor | Calls both automatically |
-| Initialization                    | Does not initialize memory  | Can initialize while creating |
-| Error Handling                    | Returns NULL if fails       | Throws bad_alloc exception if fails |
-| Memory Release                    | Must use free()             | Must use delete              |
-| Overloading / Customization        | Cannot be overloaded        | Can be overloaded (custom memory mgmt) |
-| Simplicity                        | Needs type casting and manual setup | Easier and safer in C++ |
-+-----------------------------------+-----------------------------+-----------------------------+
++-------------------------------------------------------------+
+|              malloc() vs calloc() vs new (C / C++)          |
++----------------------+---------------------+---------------------+------------------------------------------------+
+| Feature              | malloc()            | calloc()            | new                                            |
++----------------------+---------------------+---------------------+------------------------------------------------+
+| Language             | C function          | C function          | C++ operator / keyword                         |
+| Purpose              | Allocates raw memory| Allocates + zeroes  | Allocates + creates object                     |
+| Initialization       | Garbage values      | All bytes set to 0  | Constructor called (can init)                  |
+| Type Safety          | Not type-safe       | Not type-safe       | Type-safe (returns correct type)               |
+| Constructor/Destructor| Not called         | Not called          | Automatically called                           |
+| Example Syntax       | int* p=(int*)malloc |int* p=(int*)calloc  |  int* p=new int[5];                            |
+|                      |    (5*sizeof(int)); | (5,sizeof(int));    |                                                |
+| Error Handling       | Returns NULL if fail| Returns NULL if fail| Throws bad_alloc exception                     |
+| Memory Release       | free(p);            | free(p);            | delete p; or delete[] p;                       |
+| Overloading          | Cannot overload     | Cannot overload     | Can overload (custom new/delete)               |
+| Speed                | Slightly faster (no init) | Slightly slower (zero init) | Similar (depends on class)       |
+| Simplicity in C++    | Needs type casting  | Needs type casting  | Easiest and safest in C++                      |
++----------------------+---------------------+---------------------+------------------------------------------------+
+
+# 💡 Quick Summary:
+# malloc() → Allocates raw memory only.
+# calloc() → Allocates + initializes memory to zero.
+# new      → Allocates + calls constructor (best in C++).
+
 
 ✅ **In short:**  
 - `malloc` → Just gives you empty memory (C style).  
