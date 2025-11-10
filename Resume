@@ -70,3 +70,21 @@ LEAVING SAMSUNG
     Learning about windows OS is something really exciting for me. 
  
 I am looking at Microsoft as my long term employer. I have heard from my seniors it has a great working environment. So thats a bonus.
+
+
+
+
+College Project
+1. The project is titled “Detecting Network Anomalies using Multilayer Feature Selection and ML”.
+2. The goal was to build a fast, cost-efficient ML model to detect computer network attacks.
+3. We used the Canadian Institute of Cybersecurity dataset with over 3 lakh records.
+4. I cleaned the messy data using pandas (handled missing values, spaces, and unwanted columns).
+5. Used multilayer feature selection with three steps:
+   - Variance Threshold,
+   - Logistic Regression,
+   - Random Forest Classifier.
+6. Combined rankings to get around 31 top features.
+7. Used Naive Bayes, AdaBoost, and Decision Tree algorithms for classification.
+8. Naive Bayes was fast but less accurate; AdaBoost was accurate but slower.
+9. Decision Tree gave the best accuracy — 96% in detecting attacks.
+10. Key features included Flow Duration, Flow Bytes/s, FWD IAT Total, and Destination Port.
