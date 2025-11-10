@@ -1,3 +1,5 @@
+
+
 Currently i am working on developing Auto Switch algorithm on buds. 
 Samsung is launching a new product where buds are worn like earrings. So they are reversable. 
 I am developing that algorithm. After wear on is detected. We take accel values at 20 ms for 400 ms. 
@@ -16,6 +18,19 @@ And open air raw values are computed using calibration.
 We also used accel sensor to detect no move table condition as on table accel is stable and variance is is very low. 
 So if the variance is in particular low range we detect table and turn on the buds.
 
+Prdometer -> step correction->
+
+PVR -> Product Verification Result
+PRA -> Product Readiness Approval
+SRA -> Shipment Release Approval
+CHALLENGES 
+1. When software release happens-> PVR, PRA : we have to be available 24 hours. 
+    Any issue which comes has to be concluded immediately. 
+2. ⁠during PVR, PRA, at times the respective teams deny to accept the issue as there. 
+    So we have to at times work their end of ownership.
+3. ⁠as we work on devices, at times we face hardware issues..which delay our work. 
+    I work on buds, only my and 2 tensters in srin have the devices which i require. 
+4. Sensor changed from bestech to QUALCOMM, redesign all APIs on famework layer
 
 CHALLENGES 
 1. When software release SR happens : we have to be available 24 hours. 
